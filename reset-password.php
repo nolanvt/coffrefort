@@ -27,6 +27,7 @@ if (! empty($_POST["reset-btn"])) {
     $member = new Member();
     $displayMessage = $member->updatePassword($memberRecord[0]['member_id'], $_POST["password"]);
 }
+
 ?>
 <HTML>
 <HEAD>
@@ -81,7 +82,11 @@ if (! empty($displayMessage["status"])) {
 						<input class="btn" type="submit" name="reset-btn" id="reset-btn"
 							value="Reset Password">
 					</div>
+					
 				</form>
+				<form method="POST" action="./index">
+<input type="submit" name="renvoyer des fichier" value="retour connexion" >
+</form>
 			</div>
 		</div>
 	</div>

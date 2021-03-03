@@ -8,7 +8,7 @@
         $password = htmlspecialchars($_POST['password']);
         $password_retype = htmlspecialchars($_POST['password_retype']);
 
-        $check = $bdd->prepare('SELECT pseudo, email, password FROM utilisateurs WHERE email = ?');
+        $check = $bdd->prepare('SELECT pseudo, email, password FROM `tbl_member` WHERE email = ?');
         $check->execute(array($email));
         $data = $check->fetch();
         $row = $check->rowCount();
@@ -24,15 +24,14 @@
                             
                             $ip = $_SERVER['REMOTE_ADDR'];
 
-                            $insert = $bdd->prepare('INSERT INTO utilisateurs(pseudo, email, password, ip) VALUES(:pseudo, :email, :password, :ip)');
+                            $insert = $bdd->prepare('INSERT INTO tbl_member(username, email, password) VALUES(:pseudo, :email, :password)');
+                            
                             $insert->execute(array(
                                 'pseudo' => $pseudo,
                                 'email' => $email,
                                 'password' => $password,
-                                'ip' => $ip
                             ));
-
-                            header('Location:inscription.php?reg_err=success');
+                          //  header('Location:inscription.php?reg_err=success');
                             die();
                         }else{ header('Location: inscription.php?reg_err=password'); die();}
                     }else{ header('Location: inscription.php?reg_err=email'); die();}

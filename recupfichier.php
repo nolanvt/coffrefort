@@ -1,12 +1,19 @@
 <?php
- session_start();
-if(empty($_SESSION['id_user'])){
-   //redirection
-   header('location : index.php');
-   exit();
-}
+    session_start();
+    if(!isset($_SESSION['user'])){
+        header('Location:index.php');
+        die();
+    }
 ?>
-<html><form action="Model/cible_envoi.php" method="post" enctype="multipart/form-data">
+<html>
+<link href="assets/css/phppot-style.css" type="text/css"
+	rel="stylesheet" />
+<link href="assets/css/user-registration.css" type="text/css"
+	rel="stylesheet" />
+        <div class="phppot-container">
+		<div class="sign-up-container">
+			<div class="">
+<form action="Model/cible_envoi.php" method="post" enctype="multipart/form-data">
 
        <p>
 
@@ -19,4 +26,7 @@ if(empty($_SESSION['id_user'])){
        </p>
 
 </form>
+</div>
+</div>
+</div>
 </html>

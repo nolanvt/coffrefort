@@ -8,6 +8,7 @@ if (! empty($_POST["forgot-btn"])) {
 }
 ?>
 <HTML>
+
 <HEAD>
 <TITLE>Forgot Password</TITLE>
 <link href="assets/css/phppot-style.css" type="text/css"
