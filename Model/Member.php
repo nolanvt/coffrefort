@@ -6,7 +6,7 @@ class Member
 
     private $ds;
 
-    private $applicationUrl = 'http://localhost/demo/';
+    private $applicationUrl = 'http://localhost/coffrefort/coffrefort/coffrefort/';
 
     function __construct()
     {
